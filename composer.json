@@ -1,0 +1,54 @@
+{
+    "name": "hiqdev/hii2-hiqgii",
+    "type": "yii2-extension",
+    "description": "HiQDev specific Gii",
+    "keywords": ["hiqdev", "gii", "code generator", "yii2", "extension"],
+    "homepage": "https://hiqdev.com/yii2-hiqgii",
+    "license": "BSD-3-Clause",
+    "support": {
+        "email":  "support@hiqdev.com",
+        "source": "https://github.com/hiqdev/yii2-hiqgii",
+        "issues": "https://github.com/hiqdev/yii2-hiqgii/issues",
+        "wiki":   "https://github.com/hiqdev/yii2-hiqgii/wiki",
+        "forum":  "https://forum.hiqdev.com/hiqdev"
+    },
+    "authors": [
+        {
+            "role":     "Project lead",
+            "name":     "Andrii Vasyliev",
+            "email":    "sol@hiqdev.com",
+            "homepage": "https://hipanel.com/"
+        },
+        {
+            "role":     "Lead backend developer",
+            "name":     "Dmitry Naumenko",
+            "email":    "silverfire@hiqdev.com",
+            "homepage": "https://hiqdev.com/"
+        },
+        {
+            "role":     "Lead frontend developer"
+            "name":     "Andrey Klochok",
+            "email":    "tafid@hiqdev.com",
+            "homepage": "https://hiqdev.com/"
+        },
+        {
+            "role":     "QA Lead",
+            "name":     "Yuriy Myronchuk",
+            "email":    "bladeroot@hiqdev.com",
+            "homepage": "https://hiqdev.com/"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2-gii": "2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "hiqdev\\hiqgii\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
