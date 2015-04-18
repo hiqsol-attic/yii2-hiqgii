@@ -45,10 +45,5 @@
         "psr-4": {
             "hiqdev\\hiqgii\\": ""
         }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
     }
 }
