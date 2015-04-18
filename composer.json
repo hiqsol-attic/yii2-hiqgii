@@ -1,5 +1,5 @@
 {
-    "name": "hiqdev/hii2-hiqgii",
+    "name": "hiqdev/yii2-hiqgii",
     "type": "yii2-extension",
     "description": "HiQDev specific Gii",
     "keywords": ["hiqdev", "gii", "code generator", "yii2", "extension"],
