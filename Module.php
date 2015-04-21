@@ -30,7 +30,8 @@ class Module extends \yii\gii\Module implements \yii\base\BootstrapInterface
     protected function coreGenerators()
     {
         $res = parent::coreGenerators();
-        $res['extension']['class'] = 'hiqdev\hiqgii\generators\extension\Generator';
+        $res['extension']['class']  = 'hiqdev\hiqgii\generators\extension\Generator';
+        $res['module']['class']     = 'hiqdev\hiqgii\generators\module\Generator';
         return $res;
     }
 }

@@ -5,23 +5,13 @@
  * @copyright Copyright (c) 2015 HiQDev
  *
  * @var $this yii\web\View
- * @var $generator yii\gii\generators\extension\Generator
+ * @var $generator yii\gii\generators\module\Generator
  */
 ?>
 <?= $generator->getPhpHeader() ?>
 
 namespace <?= substr($generator->namespace, 0, -1) ?>;
 
-/**
- * Your class description
- */
-class FirstFile extends \yii\base\Widget
+class Module extends \hipanel\base\Module
 {
-    /**
-     * @inheritdoc
-     */
-    public function run ()
-    {
-        return "Hello!";
-    }
 }

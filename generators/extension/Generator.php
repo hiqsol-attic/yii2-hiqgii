@@ -8,10 +8,15 @@
 namespace hiqdev\hiqgii\generators\extension;
 
 use Yii;
+use yii\web\View;
 use yii\gii\CodeFile;
 
 /**
- * For general use yii2 extension
+ * Creates general use yii2 extension
+ * Usage:
+ * ~~~sh
+ * ./yii gii/extension --packageName=yii2-thememanager --namespace='hiqdev\thememanager\' --title='Theme Manager for Yii 2' --description='Component and widgets to manage themes' --keywords='theme,manager,yii2,extension'
+ * ~~~
  */
 class Generator extends \yii\gii\generators\extension\Generator
 {
@@ -115,16 +120,51 @@ EOD;
     public function generate()
     {
         $files = [];
-        $modulePath = $this->getOutputPath();
-        $templates = $this->requiredTemplates();
+        $modulePath = $this->getOutputPath() . '/' . $this->packageName;
+        $templates = self::requiredTemplates();
         foreach ($templates as $filename) {
             $files[] = new CodeFile(
-                $modulePath . '/' . $this->packageName . '/' . $filename,
+                $modulePath . '/' . $filename,
                 $this->render($filename)
             );
         };
 
         return $files;
+    }
+
+    /**
+     * Looks in parent dir too.
+     */
+    public function render ($template, $params = [])
+    {
+        $view = new View();
+        $params['generator'] = $this;
+
+        $path = $this->getTemplatePath() . '/' . $template;
+        if (!file_exists($path)) {
+            /// XXX quick solution, better redo
+            $class = (new \ReflectionClass($this))->getParentClass();
+            $dir = dirname($class->getFileName()) . '/default';
+            $path = $dir . '/' . $template;
+        };
+        return $view->renderFile($path, $params, $this);
+    }
+
+    /**
+     * PHP header with copyright notice
+     */
+    public function getPhpHeader ()
+    {
+        $year = date("Y");
+        return <<<EOD
+<?php
+/**
+ * @link    http://hiqdev.com/{$this->packageName}
+ * @license http://hiqdev.com/{$this->packageName}/license
+ * @copyright Copyright (c) {$year} HiQDev
+ */
+
+EOD;
     }
 
     /**
