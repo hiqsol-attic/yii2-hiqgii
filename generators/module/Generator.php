@@ -8,12 +8,11 @@
 namespace hiqdev\hiqgii\generators\module;
 
 use yii\gii\CodeFile;
-use yii\helpers\Html;
-use Yii;
-use yii\helpers\StringHelper;
 
 /**
- * Creates HiPanel module plugin
+ * Creates HiPanel module plugin skeleton code
+ *
+ * Usage:
  * ~~~sh
  * ./yii gii/module --moduleID=finance --title='Finance Plugin for HiPanel' --description='Finance: bill, tariffs and so on' --keywords='finance,hipanel,plugin' --models='Bill,Tariff'
  * ~~~
@@ -27,7 +26,7 @@ class Generator extends \hiqdev\hiqgii\generators\extension\Generator
     /**
      * @inheritdoc
      */
-    public function getName()
+    public function getName ()
     {
         return 'HiPanel Module Plugin Generator';
     }
@@ -35,7 +34,7 @@ class Generator extends \hiqdev\hiqgii\generators\extension\Generator
     /**
      * @inheritdoc
      */
-    public function getDescription()
+    public function getDescription ()
     {
         return 'This generator helps you to create the skeleton code needed by a HiPanel module plugin.';
     }
@@ -43,7 +42,7 @@ class Generator extends \hiqdev\hiqgii\generators\extension\Generator
     /**
      * @inheritdoc
      */
-    public function rules()
+    public function rules ()
     {
         return array_merge(parent::rules(), [
             [['moduleID', 'models'], 'filter', 'filter' => 'trim'],
@@ -56,7 +55,7 @@ class Generator extends \hiqdev\hiqgii\generators\extension\Generator
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
+    public function attributeLabels ()
     {
         return [
             'moduleID' => 'Module ID',
@@ -67,7 +66,7 @@ class Generator extends \hiqdev\hiqgii\generators\extension\Generator
     /**
      * @inheritdoc
      */
-    public function hints()
+    public function hints ()
     {
         return [
             'moduleID' => 'This refers to the ID of the module, e.g., <code>finance</code>.',
@@ -91,6 +90,7 @@ class Generator extends \hiqdev\hiqgii\generators\extension\Generator
      */
     public function generate ()
     {
+        /// TODO put in a proper place
         $this->packageName = 'hipanel-module-'.$this->moduleID;
         $this->namespace = "hipanel\\modules\\{$this->moduleID}\\";
 
